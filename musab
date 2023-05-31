@@ -1,0 +1,43 @@
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+
+public class Clinet {
+
+   
+    public static void main(String[] args) {
+        try{
+          Socket Musab=new Socket("localhost",1122);
+          
+          Scanner Musaab=new Scanner(System.in);
+          System.out.println("Enter Mu code");
+          int M=sc.nextInt();
+          System.out.println("Enter Mu number");
+          int mu=sc.nextInt();
+          
+          DataOutputStream dew=new DataOutputStream(s.DataOutputStream());
+          dew.writeInt(M);
+          dew.writeInt (ac);
+          dew.flush();
+          
+          DataInputStream dew=new DataInputStream(s.DataInputStream());
+          int mc =dis.readInt();
+          String ma =dis.readUTF();
+          double mr =dis.read();
+          ma = dis.read();
+          
+          System.out.println(" the beverage code +dew");
+          System.out.println(" the beverage name +pepsi");
+          System.out.println(" the price is +7up");
+          System.out.println(" the sales return is +meranda");
+          
+          catch(Exeption e)
+                  {
+                  System.out.println(e);
+                  }
+        }
+    }
+    
+}
