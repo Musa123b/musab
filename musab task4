@@ -1,0 +1,94 @@
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+ 
+public class Server implements Runnable  
+{
+   
+   public void run()
+   {
+   try
+       {
+           String mu2host = "jdbc:derby://localhost:1527/mu2sab";
+           String mu2name="musab";
+           String mu2pass="1122";
+           Connection con = DriverManager.getConnection(host,un,pass);
+           ServerSocket mu2sab11 = new ServerSocket(1122);
+           System.out.println("connection is working");
+ 
+           while(true)
+           {
+                
+                Socket mu2 = mu2sab.accept();
+               
+                
+                DataInputStream mudis = new  DataInputStream(mu2sab.getInputStream());
+                int mucode = dis.readInt();
+                int murq = dis.readInt();
+                System.out.println("Customer code :" +mucode);
+                System.out.println("the mu :" +murq);
+               
+                
+                double tp = (60)*amnt;
+                double worth =  tp * (2.5);
+               
+               
+                DataOutputStream dos = new DataOutputStream(st.getOutputStream());
+                dos.writeDouble(mu);
+                dos.writeDouble(worth);
+                   
+                
+                Statement mmu2sab = mu2sab.createStatement();
+                String mmmu2sab = ("select* from mu2 where CustNumber =" +mucode);
+                smt.execute(mu2sab);
+                ResultSet mu = mu2sab.getResultSet();
+                   
+                if(mu.next())
+                {
+                 double temp_pnt = mu.getString("Mname");
+                   double temp_m_val = mu.getDouble("Mprice");
+ 
+                   double m1 = temp_pnt + tp;
+                   double m2 = temp_m_val +worth;
+                   dos.writeDouble(m1);
+                   dos.writeDouble(m2);
+                                 
+              mu2sab.executeUpdate("update CUSTOMER set Mname=" + m1 + ", Mprice="+ m2 + " WHERE CustNumber=" + mu2);
+                   System.out.println("Recored has been updated on the database and sent to the client side");
+                 }
+                 else
+                 {
+                   
+                    dos.writeInt(id);
+                    System.out.println("Customer ID not found in the table and recored is not updated of Id number: " + id);
+                 }
+                 
+                
+                  dos.flush();
+                  dos.close();
+               }
+          }
+        catch(IOException ex)
+        {
+           System.out.print(ex);
+        } catch (SQLException ex) {
+           Logger.getLogger(server.21s20860.getName()).log(Level.SEVERE, null, ex);
+       }
+   }
+}  
+public class mainServer
+{
+   public static void main(String args[])
+   {
+       server m_12m456=new server();
+       Thread m_12m456=new Thread(m_12m456);
+       m_12m4567.start();
